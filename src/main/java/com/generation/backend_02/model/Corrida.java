@@ -8,8 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_corrida")
@@ -19,23 +17,17 @@ public class Corrida {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull(message = "O Atributo distancia é Obrigatório!")
-	private int distancia;
-	
-	@NotNull(message = "O Atributo velocidade é Obrigatório!")
-	private int velocidade;
-	
-	private int tempoCorrida; // = distancia/velocidade  (inicio_corrida e termino_corrida)(horario_final - hora_inicio) 23:50 - 2:00 
-	
-	@Size(min = 3, max = 100, message = "Digite no min 5 e no maximo 10 caracteres")
-	@NotNull(message = "O Atributo partida é Obrigatório!")
-	private String partida;
-	
-	@Size(min = 3, max = 100, message = "Digite no min 5 e no maximo 10 caracteres")
-	@NotNull(message = "O Atributo destino é Obrigatório!")
-	private String destino;
-	     
-	@ManyToOne
+	private Double distancia;
+    private Double velocidade;
+    private Long tempoCorrida; // Tempo em segundos
+
+   
+    private String tempoFormatado; // Tempo formatado como hh:mm:ss
+
+    private String partida;
+    private String destino;
+
+    @ManyToOne
 	@JsonIgnoreProperties("usuario")
 	private Usuario usuario;
 	
@@ -43,69 +35,82 @@ public class Corrida {
 	@JsonIgnoreProperties("motorista")
 	private Motorista motorista;
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Double getDistancia() {
+        return distancia;
+    }
 
-	public int getDistancia() {
-		return distancia;
-	}
+    public void setDistancia(Double distancia) {
+        this.distancia = distancia;
+    }
 
-	public void setDistancia(int distancia) {
-		this.distancia = distancia;
-	}
+    public Double getVelocidade() {
+        return velocidade;
+    }
 
-	public int getVelocidade() {
-		return velocidade;
-	}
+    public void setVelocidade(Double velocidade) {
+        this.velocidade = velocidade;
+    }
 
-	public void setVelocidade(int velocidade) {
-		this.velocidade = velocidade;
-	}
+    public Long getTempoCorrida() {
+        return tempoCorrida;
+    }
 
-	public int getTempoCorrida() {
-		return tempoCorrida;
-	}
+    public void setTempoCorrida(Long tempoCorrida) {
+        this.tempoCorrida = tempoCorrida;
+        this.tempoFormatado = formatarTempo(tempoCorrida);
+    }
 
-	public void setTempoCorrida(int tempoCorrida) {
-		this.tempoCorrida = tempoCorrida;
-	}
+    public String getTempoFormatado() {
+        return tempoFormatado;
+    }
 
-	public String getPartida() {
-		return partida;
-	}
+    public void setPartida(String partida) {
+        this.partida = partida;
+    }
 
-	public void setPartida(String partida) {
-		this.partida = partida;
-	}
+    public String getPartida() {
+        return partida;
+    }
 
-	public String getDestino() {
-		return destino;
-	}
+    public String getDestino() {
+        return destino;
+    }
 
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
-	public Motorista getMotorista() {
-		return motorista;
-	}
+    public Motorista getMotorista() {
+        return motorista;
+    }
 
-	public void setMotorista(Motorista motorista) {
-		this.motorista = motorista;
-	}
-	
-	
+    public void setMotorista(Motorista motorista) {
+        this.motorista = motorista;
+    }
+
+    // Método utilitário para formatar o tempo em hh:mm:ss
+    private String formatarTempo(Long tempoEmSegundos) {
+        if (tempoEmSegundos == null) {
+            return null;
+        }
+        long horas = tempoEmSegundos / 3600;
+        long minutos = (tempoEmSegundos % 3600) / 60;
+        long segundos = tempoEmSegundos % 60;
+        return String.format("%02d:%02d:%02d", horas, minutos, segundos);
+    }
 }
+	     
+	
+	
+	
+	
+

@@ -9,5 +9,5 @@ import com.generation.backend_02.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario,Long>{
 	
-	public List <Usuario> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
+	public List<Usuario> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
 }
