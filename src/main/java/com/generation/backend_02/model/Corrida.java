@@ -27,12 +27,18 @@ public class Corrida {
     private String partida;
     private String destino;
 
-    @ManyToOne
-	@JsonIgnoreProperties("usuario")
+    @ManyToOne()
+    @JsonIgnoreProperties("corrida")
+    /*Esta anotação é usada sempre pelo lado que depende da informação, nunca pelo lugar
+    que detém a informação, pois lá, a informação necessita ser serializada normalmente.
+    Casos complexos, programar a serialização ou utilizar um padrão chamado DTO. */
 	private Usuario usuario;
 	
-	@ManyToOne
-	@JsonIgnoreProperties("motorista")
+    @ManyToOne()
+    @JsonIgnoreProperties("corrida") 
+    /*Esta anotação é usada sempre pelo lado que depende da informação, nunca pelo lugar
+    que detém a informação, pois lá, a informação necessita ser serializada normalmente.
+    Casos complexos, programar a serialização ou utilizar um padrão chamado DTO. */
 	private Motorista motorista;
 
 

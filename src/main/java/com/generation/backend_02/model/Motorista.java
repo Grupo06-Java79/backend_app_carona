@@ -2,8 +2,6 @@ package com.generation.backend_02.model;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,7 +27,6 @@ public class Motorista {
 	private String tipoVeiculo; 
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "motorista", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("motorista")
 	private List<Corrida> corrida;
 
 	public Long getId() {
