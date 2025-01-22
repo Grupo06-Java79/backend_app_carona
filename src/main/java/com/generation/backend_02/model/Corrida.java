@@ -41,8 +41,17 @@ public class Corrida {
     Casos complexos, programar a serialização ou utilizar um padrão chamado DTO. */
 	private Motorista motorista;
 
+    
 
-    public Double getDistancia() {
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Double getDistancia() {
         return distancia;
     }
 
