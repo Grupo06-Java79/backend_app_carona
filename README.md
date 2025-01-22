@@ -15,7 +15,9 @@ ESCOPO DO PROJETO
 Tema: Aplicativo de caronas compartilhadas
 
 Título do Projeto e Modelo de Negócio escolhido:  
-<br>Aplicativo de caronas compartilhadas
+Aplicativo de caronas compartilhadas
+<br>Uma plataforma de gerenciamento de corridas, onde usuários podem solicitar corridas e motoristas podem realizar essas viagens.
+
 
 Descrição Geral do Projeto: 
 <br>O projeto aplicativo de caronas é uma aplicação desenvolvida em Spring Boot que gerencia as operações relacionadas a corridas realizadas por usuários e motoristas. 
@@ -29,14 +31,13 @@ Descrição da Entidade/Model foi criada e seus atributos:
 
 Funcionalidades Principais (CRUD) implementadas
 <br>Criamos as seguintes funcionalidades:
-<br>Método utilitário para formatar o tempo em hh:mm:ss
-<br>formatarTempo()
+<br>formatarTempo() - Método utilitário para formatar o tempo em hh:mm:ss
 <br>findAll()
 <br>findById()
+<br>findAllByNome()
 <br>post()
 <br>put()
 <br>delete()
-<br>findAllByNome
 
 Tecnologias Utilizadas (banco de dados e backend):
 <br> Java 17+
