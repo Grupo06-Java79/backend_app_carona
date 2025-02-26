@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.generation</groupId>
-	<artifactId>loja_games</artifactId>
+	<artifactId>backend_02</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>backend_02</name>
 	<description>Projeto App carona</description>
@@ -60,16 +60,16 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- Dependência para Geração do Swagger -->
-	<dependency>
-		<groupId>org.springdoc</groupId>
-		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-		<version>2.2.0</version>
-	 </dependency>
-	 <!-- Dependência do Banco de dados PostgreSQL -->
-<dependency>
-	<groupId>org.postgresql</groupId>
-	<artifactId>postgresql</artifactId>
-</dependency> 
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.2.0</version>
+		 </dependency>
+		<!-- Dependência do Banco de dados PostgreSQL -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>  
 	</dependencies>
 	
 	<build>
